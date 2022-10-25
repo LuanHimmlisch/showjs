@@ -1,0 +1,29 @@
+$fade-time: 0.35s;
+$fade-distance: 1rem;
+
+.show-with{
+    &[class*="fade-"]{
+        position: relative;
+        opacity: 0;
+        transition: transform $fade-time ease-in, opacity $fade-time ease-in;
+        pointer-events: none;
+        &.active {
+            transform: translate(0,0);
+            opacity: 1;
+            pointer-events: inherit;
+        }
+    }
+
+    &.fade-up {
+        transform: translateY($fade-distance);
+    }
+    &.fade-down {
+        transform: translateY(-$fade-distance);
+    }
+    &.fade-right {
+        transform: translateX(-$fade-distance);
+    }
+    &.fade-left {
+        transform: translateX($fade-distance);
+    }
+}
