@@ -1,5 +1,5 @@
 {
-  "name": "showjs",
+  "name": "show-js",
   "version": "1.0.0",
   "description": "Zero-fat, lightweight and vanilla-flavored 🍦 transition library ",
   "author": "Luan Himmlisch <luan@himmlisch.com.mx>",
@@ -9,6 +9,15 @@
   "bugs": {
     "url": "https://github.com/LuanHimmlisch/showjs/issues"
   },
+  "keywords": [
+    "vanilla",
+    "transition",
+    "scroll"
+  ],
+  "main": "dist/show.min.js",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "build": "npx mix -p",
     "watch": "npx mix watch"
