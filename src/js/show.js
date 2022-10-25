@@ -31,4 +31,6 @@
             ticking = true;
         }
     });
+
+    show(shows); // Check on start
 })();
