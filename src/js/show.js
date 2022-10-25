@@ -22,6 +22,9 @@
     }
     
     let ticking = false;
+    window.addEventListener("load", () => {
+        show(shows);
+    });
     window.addEventListener("scroll", () => {
         if (!ticking) {
             window.requestAnimationFrame(() => {
