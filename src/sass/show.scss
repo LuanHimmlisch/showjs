@@ -1,11 +1,18 @@
-$fade-time: 0.35s;
-$fade-distance: 1rem;
+$default-transition-time: 0.5s;
+$default-transition-offset: 0s;
+$default-fade-distance: 1rem;
 
 .show-with{
+    --transition-time: $default-transition-time;
+    --transition-offset: $default-transition-offset;
+    --fade-distance: $default-fade-distance;
+    
+    /* Fades  */
     &[class*="fade-"]{
         position: relative;
         opacity: 0;
-        transition: transform $fade-time ease-in, opacity $fade-time ease-in;
+        transition-delay: var(--transition-offset);
+        transition: transform var(--transition-time) ease-in, opacity var(--fade-distance) ease-in;
         pointer-events: none;
         &.active {
             transform: translate(0,0);
@@ -15,15 +22,43 @@ $fade-distance: 1rem;
     }
 
     &.fade-up {
-        transform: translateY($fade-distance);
+        transform: translateY(var(--fade-distance));
     }
     &.fade-down {
-        transform: translateY(-$fade-distance);
+        transform: translateY(calc(var(--fade-distance) * -1));
     }
     &.fade-right {
-        transform: translateX(-$fade-distance);
+        transform: translateX(calc(var(--fade-distance) * -1));
     }
     &.fade-left {
-        transform: translateX($fade-distance);
+        transform: translateX(var(--fade-distance));
     }
+
+    /*
+     * Time
+    */
+
+    &.faster{
+        --transition-time: 0.25s;
+    }
+
+    &.fast{
+        --transition-time: 0.38s;
+    }
+
+    &.base {
+        --transition-time: $default-transition-time;
+    }
+
+    &.slow {
+        --transition-time: 0.75s;
+    }
+
+    &.slower {
+        --transition-time: 1.25s;
+    }
+
+    // &.wait {
+
+    // }
 }

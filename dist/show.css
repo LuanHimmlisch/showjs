@@ -1,0 +1,48 @@
+.show-with {
+  --transition-time: $default-transition-time;
+  --transition-offset: $default-transition-offset;
+  --fade-distance: $default-fade-distance;
+  /* Fades  */
+  /*
+   * Time
+  */
+}
+.show-with[class*=fade-] {
+  position: relative;
+  opacity: 0;
+  transition-delay: var(--transition-offset);
+  transition: transform var(--transition-time) ease-in, opacity var(--fade-distance) ease-in;
+  pointer-events: none;
+}
+.show-with[class*=fade-].active {
+  transform: translate(0, 0);
+  opacity: 1;
+  pointer-events: inherit;
+}
+.show-with.fade-up {
+  transform: translateY(var(--fade-distance));
+}
+.show-with.fade-down {
+  transform: translateY(calc(var(--fade-distance) * -1));
+}
+.show-with.fade-right {
+  transform: translateX(calc(var(--fade-distance) * -1));
+}
+.show-with.fade-left {
+  transform: translateX(var(--fade-distance));
+}
+.show-with.faster {
+  --transition-time: 0.25s;
+}
+.show-with.fast {
+  --transition-time: 0.38s;
+}
+.show-with.base {
+  --transition-time: $default-transition-time;
+}
+.show-with.slow {
+  --transition-time: 0.75s;
+}
+.show-with.slower {
+  --transition-time: 1.25s;
+}
